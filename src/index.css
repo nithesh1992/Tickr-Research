@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, ui-serif, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-paper: #f5f3ee;
+  --color-ink: #20222c;
+  --color-cobalt: #5669c4;
+  --color-periwinkle: #dfe5ff;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 9rem;
+    background: #f5f3ee;
+  }
+
+  html, body, #root {
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-width: 0;
+    background-color: #f5f3ee;
+    color: #20222c;
+    font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button, input, select, textarea {
+    font: inherit;
+  }
+
+  button, a, select, summary {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  summary:focus-visible {
+    outline: 3px solid rgba(86, 105, 196, 0.32);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: #dfe5ff;
+    color: #20222c;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .custom-scrollbar {
+    scrollbar-color: #c8c3bd transparent;
+    scrollbar-width: thin;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #c8c3bd;
+    border-radius: 999px;
+  }
+
+  .surface-card {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #dfdcd6;
+    box-shadow: 0 1px 2px rgba(32, 34, 44, 0.035), 0 12px 32px -24px rgba(32, 34, 44, 0.18);
+  }
+
+  .surface-subcard {
+    background: #f8f7f3;
+    border: 1px solid #e5e1db;
+  }
+
+  .eyebrow-label {
+    font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: #706c75;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .sentiment-track {
+    background: linear-gradient(90deg, #d8a19a 0%, #e6d7ac 48%, #93a1e8 100%);
+  }
+
+  .report-details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .report-details > summary {
+    list-style: none;
+  }
+
+  .report-details[open] .details-chevron {
+    transform: rotate(180deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
